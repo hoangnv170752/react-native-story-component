@@ -24,12 +24,12 @@ const createStories = () => {
 
   return [...Array(USER_COUNT).keys()].map((i) => ({
     id: `user-${i}`,
-    avatar: faker.image.avatar(),
-    name: faker.name.fullName(),
+    avatar: faker.image.avatarGitHub(),
+    name: faker.person.fullName(),
     // seen: Math.random() < 0.5,
     stories: [...Array(USER_STORY_COUNT).keys()].map((y) => ({
       id: `story-${i}-${y}`,
-      image: faker.image.imageUrl(1080, 1920, undefined, true),
+      image: faker.image.url({ width: 1080, height: 1920 }),
       swipeText: faker.lorem.text(),
       onPress: () => console.log(`Story ${i}-${y} swiped!`),
     })),

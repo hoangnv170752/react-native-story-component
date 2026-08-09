@@ -169,7 +169,8 @@ const StoryListItem = (props: StoryListItemProps) => {
 
   // call every page changes
   useEffect(() => {
-    const isPrevious = !!prevPageIndex && prevPageIndex > currPageIndex;
+    const isPrevious =
+      prevPageIndex !== undefined && prevPageIndex > currPageIndex;
 
     if (isPrevious) {
       setCurrStoryIndex(content.length - 1);
@@ -199,7 +200,8 @@ const StoryListItem = (props: StoryListItemProps) => {
   // ... and decide next or prev
   useEffect(() => {
     if (!isNullOrWhitespace(prevStoryIndex)) {
-      const isNextStory = !!prevStoryIndex && currStoryIndex > prevStoryIndex;
+      const isNextStory =
+        prevStoryIndex !== undefined && currStoryIndex > prevStoryIndex;
       const isPrevStory = !isNextStory;
 
       const nextStory = content[currStoryIndex + 1];
